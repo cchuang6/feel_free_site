@@ -17,7 +17,6 @@ html5lib==0.999999
 Mezzanine==4.0.1
 oauthlib==1.0.1
 Pillow==2.9.0
-pp==1.6.4
 psycopg2==2.6
 pyelasticsearch==1.4
 pytz==2015.4
