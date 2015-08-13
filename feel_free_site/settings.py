@@ -315,8 +315,8 @@ NEVERCACHE_KEY = "_7%rm6i^298($)@n3ah$lp2c+=hvn#mez0!ndu9l4*%56%@i_j"
 # S3 STATIC FILES #
 ###################
 
-AWS_S3_SECURE_URLS = False
-AWS_S3_ENCRYPTION = False
+# AWS_S3_SECURE_URLS = False
+# AWS_S3_ENCRYPTION = False
 AWS_QUERYSTRING_AUTH = False
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
