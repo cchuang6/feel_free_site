@@ -331,7 +331,7 @@ STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 MEDIA_ROOT = ''
 MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-STATIC_ROOT = "/%s/" % STATICFILES_LOCATION
+STATIC_ROOT = ''#"/%s/" % STATICFILES_LOCATION
 STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
 # ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
