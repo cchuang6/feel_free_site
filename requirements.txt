@@ -2,8 +2,10 @@ beautifulsoup4==4.4.0
 bleach==1.4.1
 boto==2.38.0
 chardet==2.3.0
+dj-database-url==0.3.0
 Django==1.8.3
 django-contrib-comments==1.6.1
+django-s3-folder-storage==0.2
 django-s3-storages-utils==0.1.0
 django-storages==1.1.8
 filebrowser-safe==0.4.0
