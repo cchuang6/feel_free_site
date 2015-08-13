@@ -4,10 +4,12 @@ boto==2.38.0
 chardet==2.3.0
 dj-database-url==0.3.0
 Django==1.8.3
+django-appconf==1.0.1
+django-compressor==1.5
 django-contrib-comments==1.6.1
 django-s3-folder-storage==0.2
 django-s3-storages-utils==0.1.0
-django-storages==1.1.8
+django-storages-redux==1.2.3
 filebrowser-safe==0.4.0
 future==0.15.0
 grappelli-safe==0.4.1
