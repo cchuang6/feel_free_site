@@ -118,7 +118,7 @@ LANGUAGES = (
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-DEBUG = True
+DEBUG = False
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -315,28 +315,39 @@ NEVERCACHE_KEY = "_7%rm6i^298($)@n3ah$lp2c+=hvn#mez0!ndu9l4*%56%@i_j"
 # S3 STATIC FILES #
 ###################
 
-# AWS_S3_SECURE_URLS = False
-# AWS_S3_ENCRYPTION = False
+# AWS security settings
+# if you don't need these
+AWS_S3_SECURE_URLS = False
+AWS_S3_ENCRYPTION = False
 AWS_QUERYSTRING_AUTH = False
+# get the key from environment settings
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
+# tells AWS to add properties to the files, such that when they
+# get served from s3 they come with this header telling the browser to cache
+# for life
+AWS_HEADERS = {
+                    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+                    'Cache-Control': 'max-age=94608000',
+                }
+# Used to make sure that only changed files are uploaded with collectstatic
+AWS_PRELOAD_METADATA = True
+
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
-
-
-MEDIA_ROOT = ''
+MEDIA_ROOT = 'media/'
 MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-STATIC_ROOT = ''#"/%s/" % STATICFILES_LOCATION
-STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
+COMPRESS_ROOT = STATIC_ROOT = "%s/" % STATICFILES_LOCATION
+COMPRESS_URL = STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
 # ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
-# AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
-AWS_PRELOAD_METADATA = True #helps collectstatic do updates
+
+
 # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
