@@ -316,10 +316,11 @@ NEVERCACHE_KEY = "_7%rm6i^298($)@n3ah$lp2c+=hvn#mez0!ndu9l4*%56%@i_j"
 ###################
 
 # AWS_S3_SECURE_URLS = False
-# AWS_S3_ENCRYPTION = False
+
 # We are not using SSL. You can change this to "True" and to "https:"
 # if you are using a SSL Certificate.
 AWS_S3_SECURE_URLS = False
+AWS_S3_ENCRYPTION = False
 AWS_S3_URL_PROTOCOL = 'http:'
 
 # All files uploaded to AWS S3 will have very long cache headers
