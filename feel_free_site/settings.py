@@ -315,10 +315,32 @@ NEVERCACHE_KEY = "_7%rm6i^298($)@n3ah$lp2c+=hvn#mez0!ndu9l4*%56%@i_j"
 # S3 STATIC FILES #
 ###################
 
-# AWS security settings
-# if you don't need these
+# We are not using SSL. You can change this to "True" and to "https:"
+# if you are using a SSL Certificate.
 AWS_S3_SECURE_URLS = False
 AWS_S3_ENCRYPTION = False
+AWS_S3_URL_PROTOCOL = 'http:'
+
+# All files uploaded to AWS S3 will have very long cache headers
+# automatically.
+AWS_HEADERS = {
+ 'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+ 'Cache-Control': 'max-age=94608000',
+}
+
+# You need to set AWS_IS_GZIPPED to True to tell django-storages to
+# GZIP all files uploaded to AWS S3.
+AWS_IS_GZIPPED = True
+
+# Add missing content types to the list of types
+# that should be gzipped.
+GZIP_CONTENT_TYPES = (
+ 'text/css',
+ 'application/javascript',
+ 'application/x-javascript',
+ 'text/javascript'
+)
+
 AWS_QUERYSTRING_AUTH = False
 # get the key from environment settings
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
@@ -340,14 +362,24 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
-MEDIA_ROOT = ''
-MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-STATIC_ROOT = ''  # % STATICFILES_LOCATION
-STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_ROOT = ''#"%s/" % MEDIAFILES_LOCATION
+MEDIA_URL = '%s//%s.s3.amazonaws.com/media/' % (AWS_S3_URL_PROTOCOL, AWS_STORAGE_BUCKET_NAME)
+COMPRESS_ROOT = STATIC_ROOT = "%s/" % STATICFILES_LOCATION
+COMPRESS_URL = STATIC_URL = '%s//%s.s3.amazonaws.com/static/' % (AWS_S3_URL_PROTOCOL, AWS_STORAGE_BUCKET_NAME)
 # ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
+# AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
+AWS_PRELOAD_METADATA = True #helps collectstatic do updates
 
+# Enable Compression on all Javascript and CSS used in template.
+# The CachedS3BotoStorage both keep local files saved and uploads
+# to S3. This is used to make the Compressor module be able to see
+# what files have been changed or updated on the temp files on same server
+COMPRESS_ENABLED = True
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
 
+# This will ALWAYS be same as our STATICFILES_STORAGE setting.
+COMPRESS_STORAGE = 'custom_storages.CachedS3BotoStorage'
 # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
