@@ -340,7 +340,7 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = ''
 MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 COMPRESS_ROOT = STATIC_ROOT = "%s/" % STATICFILES_LOCATION
 COMPRESS_URL = STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
