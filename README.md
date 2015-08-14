@@ -3,14 +3,24 @@
 Installation guide for MAC user
 -----------------------------------------
 
-1. Install Anaconda
+1. Pull down the source code
+git clone https://github.com/cchuang6/feel_free_site.git
+
+2. Install Anaconda
 http://continuum.io/downloads
 
-2. Create a virtual env
+3. Create a virtual env
 $ conda create -n feel_free django
 
-3. Activate the virtualenv
+4. Activate the virtualenv
 $ source activate feel_free
 
-4. Install depdendencies for your virtual env
+5. Install depdendencies for your virtual env
 pip install -r requirement.txt
+
+6. Create a database
+python manage.py createdb
+
+6. Run it
+python manage.py runserver
+
