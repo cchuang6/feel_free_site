@@ -3,6 +3,8 @@ from __future__ import absolute_import, unicode_literals
 import os
 from django.utils.translation import ugettext_lazy as _
 
+import logging
+logger = logging.getLogger('settings.py')
 
 ######################
 # MEZZANINE SETTINGS #
@@ -201,7 +203,8 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
-
+logger.debug(TEMPLATE_DIRS)
+print TEMPLATE_DIRS
 
 ################
 # APPLICATIONS #
@@ -393,8 +396,38 @@ COMPRESS_STORAGE = 'custom_storages.CachedS3BotoStorage'
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'mysite.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'MYAPP': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
 }
+
+
 
 ##################
 # LOCAL SETTINGS #
