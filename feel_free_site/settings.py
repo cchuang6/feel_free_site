@@ -228,6 +228,7 @@ INSTALLED_APPS = (
     "storages",
     "gunicorn",
     "compressor",
+    "feel_free_home",
     # "mezzanine.accounts",
     # "mezzanine.mobile",
 )
