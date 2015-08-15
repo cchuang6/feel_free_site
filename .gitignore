@@ -4,6 +4,9 @@
 .DS_Store
 .coverage
 local_settings.py
-/static
+/static/*
+!static/CACHE/
+static/CACHE/*
+!/static/CACHE/.gitignore
 /venv
 .idea/
