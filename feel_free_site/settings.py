@@ -3,8 +3,6 @@ from __future__ import absolute_import, unicode_literals
 import os
 from django.utils.translation import ugettext_lazy as _
 
-import logging
-logger = logging.getLogger('settings.py')
 
 ######################
 # MEZZANINE SETTINGS #
@@ -168,7 +166,9 @@ DATABASES = {
 PROJECT_APP_PATH = os.path.dirname(os.path.abspath(__file__))
 PROJECT_APP = os.path.basename(PROJECT_APP_PATH)
 PROJECT_ROOT = BASE_DIR = os.path.dirname(PROJECT_APP_PATH)
-
+print("PROJECT_APP_PATH", PROJECT_APP_PATH)
+print("PROJECT_APP", PROJECT_APP)
+print("PROJECT_ROOT", PROJECT_ROOT)
 
 # Every cache key will get prefixed with this value - here we set it to
 # the name of the directory the project is in to try and use something
@@ -203,8 +203,6 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
-logger.debug(TEMPLATE_DIRS)
-print TEMPLATE_DIRS
 
 ################
 # APPLICATIONS #
