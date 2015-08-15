@@ -203,6 +203,7 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
+print("TEMPLATE_DIRS", TEMPLATE_DIRS)
 
 ################
 # APPLICATIONS #
