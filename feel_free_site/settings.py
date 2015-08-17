@@ -2,7 +2,37 @@
 from __future__ import absolute_import, unicode_literals
 import os
 from django.utils.translation import ugettext_lazy as _
+import logging
+logger = logging.getLogger(__name__)
 
+
+def get_env_variable(section_name, var_name, default=False):
+    """
+    Get the environment variable or return exception
+    :param var_name: Environment Variable to lookup
+    """
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        import StringIO
+        import ConfigParser
+        env_file = os.environ.get('PROJECT_ENV_FILE', PROJECT_ROOT + "/env.cfg")
+        try:
+            cp = ConfigParser.RawConfigParser()
+            cp.readfp(open(env_file))
+            value = cp.get(section_name, var_name.lower())
+            os.environ.setdefault(var_name, value)
+            return value
+        except:
+            logger.debug("Have Exception while load env variables")
+            if default is not False:
+                return default
+            from django.core.exceptions import ImproperlyConfigured
+            error_msg = "Environment file: {env_file}, Section: {section_name}, " \
+                        "Variable name: {var_name}"
+            raise ImproperlyConfigured(error_msg.format(section_name = section_name,
+                                                        var_name=var_name,
+                                                        env_file=env_file))
 
 ######################
 # MEZZANINE SETTINGS #
@@ -78,6 +108,8 @@ from django.utils.translation import ugettext_lazy as _
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
 # BLOG_USE_FEATURED_IMAGE = True
+
+
 
 # If True, the django-modeltranslation will be added to the
 # INSTALLED_APPS setting.
@@ -166,10 +198,6 @@ DATABASES = {
 PROJECT_APP_PATH = os.path.dirname(os.path.abspath(__file__))
 PROJECT_APP = os.path.basename(PROJECT_APP_PATH)
 PROJECT_ROOT = BASE_DIR = os.path.dirname(PROJECT_APP_PATH)
-print("PROJECT_APP_PATH", PROJECT_APP_PATH)
-print("PROJECT_APP", PROJECT_APP)
-print("PROJECT_ROOT", PROJECT_ROOT)
-
 # Every cache key will get prefixed with this value - here we set it to
 # the name of the directory the project is in to try and use something
 # project specific.
@@ -202,11 +230,8 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 # or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-# templateDir = os.path.dirname(__file__)
-# TEMPLATE_DIRS = (os.path.join(templateDir, "templates"),)
-# print("TEMPLATE_DIRS",TEMPLATE_DIRS)
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
-print("TEMPLATE_DIRS", TEMPLATE_DIRS)
+
 
 
 ################
@@ -308,15 +333,16 @@ OPTIONAL_APPS = (
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
-
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ##################
 # DJANGO         #
 ##################
-SECRET_KEY = "54vo6-=6#$%(g6kkc82z@$p_l8d=c)!((#!=i1al(0dky$inr8"
-NEVERCACHE_KEY = "_7%rm6i^298($)@n3ah$lp2c+=hvn#mez0!ndu9l4*%56%@i_j"
+# TODO: check SCERETE_KEY here
+SECRET_KEY = get_env_variable('SITE', 'SECRET_KEY', False)
+NEVERCACHE_KEY = get_env_variable('SITE', 'NEVERCACHE_KEY', False)
+
 
 ###################
 # S3 STATIC FILES #
@@ -350,9 +376,11 @@ GZIP_CONTENT_TYPES = (
 
 AWS_QUERYSTRING_AUTH = False
 # get the key from environment settings
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_ACCESS_KEY_ID = get_env_variable('AMAZON_S3', 'AWS_ACCESS_KEY_ID', False)
+AWS_SECRET_ACCESS_KEY = get_env_variable('AMAZON_S3', 'AWS_SECRET_ACCESS_KEY', False)
+AWS_STORAGE_BUCKET_NAME = get_env_variable('AMAZON_S3', 'AWS_STORAGE_BUCKET_NAME', False)
+
 # tells AWS to add properties to the files, such that when they
 # get served from s3 they come with this header telling the browser to cache
 # for life
@@ -384,15 +412,9 @@ AWS_PRELOAD_METADATA = True #helps collectstatic do updates
 # what files have been changed or updated on the temp files on same server
 COMPRESS_ENABLED = True
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
-
 # This will ALWAYS be same as our STATICFILES_STORAGE setting.
 COMPRESS_STORAGE = 'custom_storages.CachedS3BotoStorage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-# STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-# ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
 
-# MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 ###########
 # LOGGING #
 ###########
@@ -464,3 +486,5 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+

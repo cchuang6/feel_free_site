@@ -37,7 +37,7 @@ urlpatterns += patterns(
     # commented out like the others, so it's the default. You only need
     # one homepage pattern, so if you use a different one, comment this
     # one out.
-    url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+    url("^$", direct_to_template, {"template": "indexHome.html"}, name="home"),
     # url("^$", include("feel_free_home.urls"), name="home"),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
@@ -77,7 +77,10 @@ urlpatterns += patterns(
     # ``mezzanine.urls``, go right ahead and take the parts you want
     # from it, and use them directly below instead of using
     # ``mezzanine.urls``.
-    ("^", include("mezzanine.urls")),
+    # ("^", include("mezzanine.urls")),
+    ("^", include("mezzanine.core.urls")),
+    ("^", include("mezzanine.generic.urls")),
+
 
     # MOUNTING MEZZANINE UNDER A PREFIX
     # ---------------------------------
