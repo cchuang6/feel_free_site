@@ -341,9 +341,10 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # DJANGO         #
 ##################
 # TODO: check SCERETE_KEY here
-SECRET_KEY = get_env_variable('SITE', 'SECRET_KEY', False)
-NEVERCACHE_KEY = get_env_variable('SITE', 'NEVERCACHE_KEY', False)
-
+# SECRET_KEY = get_env_variable('SITE', 'SECRET_KEY', False)
+# NEVERCACHE_KEY = get_env_variable('SITE', 'NEVERCACHE_KEY', False)
+SECRET_KEY=os.environ['SECRET_KEY']
+NEVERCACHE_KEY=os.environ['NEVERCACHE_KEY']
 
 ###################
 # S3 STATIC FILES #
@@ -377,10 +378,14 @@ GZIP_CONTENT_TYPES = (
 
 AWS_QUERYSTRING_AUTH = False
 # get the key from environment settings
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_ACCESS_KEY_ID = get_env_variable('AMAZON_S3', 'AWS_ACCESS_KEY_ID', False)
-AWS_SECRET_ACCESS_KEY = get_env_variable('AMAZON_S3', 'AWS_SECRET_ACCESS_KEY', False)
-AWS_STORAGE_BUCKET_NAME = get_env_variable('AMAZON_S3', 'AWS_STORAGE_BUCKET_NAME', False)
+
+# AWS_ACCESS_KEY_ID = get_env_variable('AMAZON_S3', 'AWS_ACCESS_KEY_ID', False)
+# AWS_SECRET_ACCESS_KEY = get_env_variable('AMAZON_S3', 'AWS_SECRET_ACCESS_KEY', False)
+# AWS_STORAGE_BUCKET_NAME = get_env_variable('AMAZON_S3', 'AWS_STORAGE_BUCKET_NAME', False)
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 
 # tells AWS to add properties to the files, such that when they
 # get served from s3 they come with this header telling the browser to cache
@@ -419,10 +424,14 @@ COMPRESS_STORAGE = 'custom_storages.CachedS3BotoStorage'
 ##############
 #  Parse.com #
 ##############
-PARSE_APPLICATION_ID = get_env_variable('PARSE', 'PARSE_APPLICATION_ID')
-PARSE_REST_API_KEY = get_env_variable('PARSE', 'PARSE_REST_API_KEY')
-PARSE_MASTER_KEY = get_env_variable('PARSE', 'PARSE_MASTER_KEY')
+# PARSE_APPLICATION_ID = get_env_variable('PARSE', 'PARSE_APPLICATION_ID')
+# PARSE_REST_API_KEY = get_env_variable('PARSE', 'PARSE_REST_API_KEY')
+# PARSE_MASTER_KEY = get_env_variable('PARSE', 'PARSE_MASTER_KEY')
 
+
+PARSE_APPLICATION_ID = os.environ['PARSE_APPLICATION_ID']
+PARSE_REST_API_KEY = os.environ['PARSE_REST_API_KEY']
+PARSE_MASTER_KEY = os.environ['PARSE_MASTER_KEY']
 
 ###########
 # LOGGING #
