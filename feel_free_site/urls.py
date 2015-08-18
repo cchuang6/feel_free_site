@@ -55,6 +55,7 @@ urlpatterns += patterns(
 
     # url("^$", "mezzanine.pages.views.page", {"slug": "/"}, name="home"),
     url(r'^home/', include('feel_free_home.urls')),
+    url(r'^visualization/', include('visualization.urls')),
 
     # HOMEPAGE FOR A BLOG-ONLY SITE
     # -----------------------------

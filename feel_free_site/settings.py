@@ -240,6 +240,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
 INSTALLED_APPS = (
     "feel_free_home",
+    "visualization",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -414,6 +415,14 @@ COMPRESS_ENABLED = True
 COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.CSSMinFilter']
 # This will ALWAYS be same as our STATICFILES_STORAGE setting.
 COMPRESS_STORAGE = 'custom_storages.CachedS3BotoStorage'
+
+##############
+#  Parse.com #
+##############
+APPLICATION_ID = get_env_variable('PARSE', 'APPLICATION_ID')
+REST_API_KEY = get_env_variable('PARSE', 'REST_API_KEY')
+MASTER_KEY = get_env_variable('PARSE', 'MASTER_KEY')
+
 
 ###########
 # LOGGING #
