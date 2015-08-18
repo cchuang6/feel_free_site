@@ -11,3 +11,9 @@ static/CACHE/*
 !/static/CACHE/.gitignore
 /venv
 .idea/
+feel_free.sublime-project
+feel_free.sublime-workspace
+mysite.log
+heroku.feel_free
+heroku.feel_free.pub
+/uploads
