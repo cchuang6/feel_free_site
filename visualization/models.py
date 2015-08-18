@@ -8,9 +8,9 @@ from django.conf import settings
 
 # Register connection for Parse.com here
 register(
-    getattr(settings, 'APPLICATION_ID', ''),
-    getattr(settings, 'REST_API_KEY', ''),
-    master_key=getattr(settings, 'MASTER_KEY', '')
+    getattr(settings, 'PARSE_APPLICATION_ID', ''),
+    getattr(settings, 'PARSE_REST_API_KEY', ''),
+    master_key=getattr(settings, 'PARSE_MASTER_KEY', '')
 )
 
 class City(Object):

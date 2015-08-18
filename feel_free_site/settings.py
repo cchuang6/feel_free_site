@@ -419,9 +419,9 @@ COMPRESS_STORAGE = 'custom_storages.CachedS3BotoStorage'
 ##############
 #  Parse.com #
 ##############
-APPLICATION_ID = get_env_variable('PARSE', 'APPLICATION_ID')
-REST_API_KEY = get_env_variable('PARSE', 'REST_API_KEY')
-MASTER_KEY = get_env_variable('PARSE', 'MASTER_KEY')
+PARSE_APPLICATION_ID = get_env_variable('PARSE', 'PARSE_APPLICATION_ID')
+PARSE_REST_API_KEY = get_env_variable('PARSE', 'PARSE_REST_API_KEY')
+PARSE_MASTER_KEY = get_env_variable('PARSE', 'PARSE_MASTER_KEY')
 
 
 ###########
