@@ -10,33 +10,22 @@
         fill: black;
       }
     </style>
-    <title>Visualization Test</title>
-    <script src="{% static "js/d3.min.js" %}"></script>
+    <title>{{ title }}</title>
+    <!-- <script src="{% static "js/d3.min.js" %}"></script> -->
     <!--<script src="{% static "js/topojson.v0.min.js" %}"></script>-->
     <!-- <script src="http://d3js.org/topojson.v1.min.js"></script> -->
 </head>
 <body>
 <p>Number of Visits Today: </p>
 <ul>
-    <li>{{ checkin_num }}</li>
+    <li>{{ num_visits }}</li>
 </ul>
 
 <p>Number of People Here Now: </p>
 <ul>
-    <li>{{ checkin_num }}</li>
+    <li>{{ num_users }}</li>
 </ul>
 
-<p>Average Time Stay:</p>
-<ul>
-    <li>{{ checkin_num }}</li>
-</ul>
-
-<p>Demographic: </p>
-<ul>
-    <li>Number of Female: {{ checkin_num }}</li>
-    <li>Number of Male: {{ checkin_num }}</li>
-    <li>Average Age: {{ checkin_num }}</li>
-</ul>
 
 
 </body>

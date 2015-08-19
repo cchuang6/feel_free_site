@@ -1,52 +1,58 @@
 from django.shortcuts import render
-from parse_rest.datatypes import Object, Pointer, GeoPoint
+from parse_rest.datatypes import Object, Pointer, GeoPoint, Function
 import datetime
 from .models import Space, History, User
 
 # Create your views here.
 
+# TODO: average time users checked in the space
+# TODO: Demographic
+
 def index(request):
-    # This is for test only
-    # Who is here
-    # How many people came in one day
-    # How long they have stayed
-    # Sex, Age, Occoupation
-    today = datetime.datetime.today()
-    today = today.replace(hour=0, minute=0, second=0, microsecond=0)
+    """Return a index page
 
-    # make to one day
-    today = today - datetime.timedelta(days=1)
-    tomorrow = today + datetime.timedelta(days=1)
+    Args:
+        request (HttpRequest): The request object used to generate this response.
+
+    Returns:
+        HttpResponse object: An HttpResponse with rendered text
+    """
+
     #SIP ID: LjIgPxR6Bt
-    targetId = 'LjIgPxR6Bt'
-    space = Pointer(Space(objectId=targetId))
-    checkin_today = History.Query.filter(createdAt__gte=today, createdAt__lt=tomorrow,
-                                         action='CHECK IN', space=space)
+    spaceId = 'LjIgPxR6Bt'
+    date = datetime.datetime.today()
+    version = '1.2.1'
+    deviceType = 'ios'
 
+    # number of check in per day
+    num_visits = __getNumVisitsOneDay(spaceId, date)
 
-    # TODO: use parse function
-    # my_loc = GeoPoint(latitude=33.489626, longitude=-111.926755)
-    #### Use geo location to determine check in or not
-    #space = Space.Query.filter(objectId=targetId)
-    #user 1: xjX6jBZbbB, bktH2uYB4K, qZUSq5LMIF
-    # user1 = User.Query.filter(objectId='xjX6jBZbbB')
-    # user2 = User.Query.filter(objectId='bktH2uYB4K')
-    # user3 = User.Query.filter(objectId='qZUSq5LMIF')
+    # number of current users
+    getSpaceDetail = Function('getSpaceDetail')
+    spaceDetail = getSpaceDetail(spaceId=spaceId, version=version, deviceType=deviceType)
+    num_users = len(spaceDetail['result']['users'])
 
-    # if space.count() != 0:
-    #     users = User.Query.filter(alreadyCheckedIn=True, coordniate__nearSphere=space[0].coordinate)
-
-
-
-    # maps_for_mode = GameMap.Query.filter(maps__relatedTo=mode)
-
-
-
-    context = {'checkin_num': checkin_today.count()}
-
-
-
-
-    # locations = [item.coordinate for item in query]
-    # print locations
+    context = {'num_visits': num_visits, 'num_users': num_users, 'title': 'SIP Test'}
     return render(request, 'index.html', context)
+
+
+def __getNumVisitsOneDay(spaceId, date):
+    """Get number of visits in one day
+
+    Args:
+        spaceId (str): Space Object ID
+        date (datetime.datetime): The query date
+
+    Returns:
+        int: Number of visits
+    """
+
+    if date == None:
+        date = datetime.datetime.today()
+    date = date.replace(hour=0, minute=0, second=0, microsecond=0)
+    tomorrow = date + datetime.timedelta(days=1)
+
+    space = Pointer(Space(objectId=spaceId))
+    result = History.Query.filter(createdAt__gte=date, createdAt__lt=tomorrow,
+                                  action='CHECK IN', space=space)
+    return result.count()
