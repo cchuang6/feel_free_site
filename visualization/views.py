@@ -2,6 +2,7 @@ from django.shortcuts import render
 from parse_rest.datatypes import Object, Pointer, GeoPoint, Function
 import datetime
 from .models import Space, History, User
+from sets import Set
 
 # Create your views here.
 
@@ -32,9 +33,49 @@ def index(request):
     spaceDetail = getSpaceDetail(spaceId=spaceId, version=version, deviceType=deviceType)
     num_users = len(spaceDetail['result']['users'])
 
-    context = {'num_visits': num_visits, 'num_users': num_users, 'title': 'SIP Test'}
+    # This is for testing
+    endDate = datetime.datetime.today()
+    startDate = endDate - datetime.timedelta(days=30)
+    num_newUsers = __getNumNewCustomers(spaceId, startDate, endDate)
+
+    # number of new customers
+
+
+    context = {'title': 'SIP Test', 'num_visits': num_visits, 'num_users': num_users,
+               'num_newUsers': num_newUsers}
     return render(request, 'index.html', context)
 
+
+def __getNumNewCustomers(spaceId, startDate, endDate):
+    """Get number of new customers in date range
+
+    Args:
+        spaceId (str): Space Object ID
+        startDate (datetime.datetime): The query start date
+        endDate (datetime.datetime): The query end date
+
+    Returns:
+        int: Number of visits
+    """
+
+    if endDate == None:
+        endDate = datetime.datetime.today()
+    endDate = endDate.replace(hour=0, minute=0, second=0, microsecond=0)
+    endDate = endDate + datetime.timedelta(days=1)
+    startDate = startDate.replace(hour=0, minute=0, second=0, microsecond=0)
+
+    space = Pointer(Space(objectId=spaceId))
+    currentLogs = History.Query.filter(createdAt__lt=endDate, action='CHECK IN', space=space)
+    prevLogs = History.Query.filter(createdAt__lt=startDate, action='CHECK IN', space=space)
+
+    sNow = Set()
+    sPrev = Set()
+    for item in currentLogs:
+        sNow.add(item.user.objectId)
+    for item in prevLogs:
+        sPrev.add(item.user.objectId)
+    sNow -= sPrev
+    return len(sNow)
 
 def __getNumVisitsOneDay(spaceId, date):
     """Get number of visits in one day
