@@ -76,8 +76,8 @@ def __getNumNewCustomers(spaceId, startDate, endDate):
         sNow.add(item.user.objectId)
     for item in prevLogs:
         sPrev.add(item.user.objectId)
-    sNow -= sPrev
-    return len(sNow)
+
+    return len(sNow - sPrev)
 
 def __getNumVisitsOneDay(spaceId, date):
     """Get number of visits in one day
