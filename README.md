@@ -15,12 +15,14 @@ $ conda create -n feel_free django
 4. Activate the virtualenv
 $ source activate feel_free
 
-5. Install depdendencies for your virtual env
+5. Install PostgreSQL 
+
+6. Install depdendencies for your virtual env
 pip install -r requirement.txt
 
-6. Create a database
+7. Create a database
 python manage.py createdb
 
-6. Run it
+8. Run it
 python manage.py runserver
 
