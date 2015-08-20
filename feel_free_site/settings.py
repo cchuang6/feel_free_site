@@ -3,36 +3,10 @@ from __future__ import absolute_import, unicode_literals
 import os
 from django.utils.translation import ugettext_lazy as _
 import logging
+from utils import get_env_variable
 logger = logging.getLogger(__name__)
 
 
-def get_env_variable(section_name, var_name, default=False):
-    """
-    Get the environment variable or return exception
-    :param var_name: Environment Variable to lookup
-    """
-    try:
-        return os.environ[var_name]
-    except KeyError:
-        import StringIO
-        import ConfigParser
-        env_file = os.environ.get('PROJECT_ENV_FILE', PROJECT_ROOT + "/env.cfg")
-        try:
-            cp = ConfigParser.RawConfigParser()
-            cp.readfp(open(env_file))
-            value = cp.get(section_name, var_name.lower())
-            os.environ.setdefault(var_name, value)
-            return value
-        except:
-            logger.debug("Have Exception while load env variables")
-            if default is not False:
-                return default
-            from django.core.exceptions import ImproperlyConfigured
-            error_msg = "Environment file: {env_file}, Section: {section_name}, " \
-                        "Variable name: {var_name}"
-            raise ImproperlyConfigured(error_msg.format(section_name = section_name,
-                                                        var_name=var_name,
-                                                        env_file=env_file))
 
 ######################
 # MEZZANINE SETTINGS #
@@ -392,16 +366,18 @@ AWS_HEADERS = {
 # Used to make sure that only changed files are uploaded with collectstatic
 AWS_PRELOAD_METADATA = True
 
-MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILES_LOCATION = 'media'
 
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 MEDIA_ROOT = ''#"%s/" % MEDIAFILES_LOCATION
 MEDIA_URL = '%s//%s.s3.amazonaws.com/media/' % (AWS_S3_URL_PROTOCOL, AWS_STORAGE_BUCKET_NAME)
+
 COMPRESS_ROOT = STATIC_ROOT = "%s/" % STATICFILES_LOCATION
 COMPRESS_URL = STATIC_URL = '%s//%s.s3.amazonaws.com/static/' % (AWS_S3_URL_PROTOCOL, AWS_STORAGE_BUCKET_NAME)
+
 # ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'grappelli/'
 # AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
@@ -419,9 +395,9 @@ COMPRESS_STORAGE = 'custom_storages.CachedS3BotoStorage'
 ##############
 #  Parse.com #
 ##############
-PARSE_APPLICATION_ID = get_env_variable('PARSE', 'PARSE_APPLICATION_ID')
-PARSE_REST_API_KEY = get_env_variable('PARSE', 'PARSE_REST_API_KEY')
-PARSE_MASTER_KEY = get_env_variable('PARSE', 'PARSE_MASTER_KEY')
+PARSE_APPLICATION_ID = get_env_variable('PARSE_TEST', 'PARSE_APPLICATION_ID')
+PARSE_REST_API_KEY = get_env_variable('PARSE_TEST', 'PARSE_REST_API_KEY')
+PARSE_MASTER_KEY = get_env_variable('PARSE_TEST', 'PARSE_MASTER_KEY')
 
 
 ###########
