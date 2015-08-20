@@ -41,8 +41,10 @@ def index(request):
     # number of new customers
 
 
-    context = {'title': 'SIP Test', 'num_visits': num_visits, 'num_users': 0,
-               'num_newUsers': num_newUsers}
+    # context = {'title': 'SIP Test', 'num_visits': num_visits, 'num_users': 0,
+    #            'num_newUsers': num_newUsers}
+    context = {'title': 'SIP Test', 'num_visits': 0, 'num_users': 0,
+               'num_newUsers': 0}
     return render(request, 'index.html', context)
 
 
