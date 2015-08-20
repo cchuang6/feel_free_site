@@ -29,9 +29,9 @@ def index(request):
     num_visits = __getNumVisitsOneDay(spaceId, date)
 
     # number of current users
-    getSpaceDetail = Function('getSpaceDetail')
-    spaceDetail = getSpaceDetail(spaceId=spaceId, version=version, deviceType=deviceType)
-    num_users = len(spaceDetail['result']['users'])
+    # getSpaceDetail = Function('getSpaceDetail')
+    # spaceDetail = getSpaceDetail(spaceId=spaceId, version=version, deviceType=deviceType)
+    # num_users = len(spaceDetail['result']['users'])
 
     # This is for testing
     endDate = datetime.datetime.today()
@@ -41,7 +41,7 @@ def index(request):
     # number of new customers
 
 
-    context = {'title': 'SIP Test', 'num_visits': num_visits, 'num_users': num_users,
+    context = {'title': 'SIP Test', 'num_visits': num_visits, 'num_users': 0,
                'num_newUsers': num_newUsers}
     return render(request, 'index.html', context)
 
