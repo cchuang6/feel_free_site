@@ -63,7 +63,7 @@
                         <a href="#signup">Sign Up</a>
                     </li>
                     <li>
-                        <a href="#loginmodal1" class="login-link" data-toggle="modal">Login</a>
+                        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">Login</a>
                     </li>
                 </ul>
             </div>
@@ -217,8 +217,9 @@
         </a>
     </div>
 
-    <!-- login Modals -->
-    <div class="login-modal modal fade" id="loginModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -251,7 +252,7 @@
                                 <div id="success"></div>
                                 <div class="row">
                                     <div class="form-group col-xs-12">
-                                        <button type="submit" class="btn btn-success btn-lg"><a href="welcome.html">Login</a></button>
+                                        <button type="submit" class="btn btn-success btn-lg"><a href="{% url 'dashBoard-welcome' %}">Login</a></button>
                                     </div>
                                 </div>
                             </form>

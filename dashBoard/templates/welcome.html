@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n staticfiles compress %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feel Free Space - Business Name</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Business Name</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Quick Stats</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Quick Push</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'home' %}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="{% static "img/avatar_sip.png" %}" alt="">
+                    <div class="intro-text">
+                        <span class="name">Sip Coffee + Beer House</span>
+                        <span class="skills">Feel Free Space since August 10, 2015</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Quick Stats</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Place the priority stats here.</p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Show More Stats
+                  </button>
+                  <div class="collapse col-lg-12" id="collapseExample">
+                    <div class="morestats">
+                      <p>What's going on here!</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Campaign Manager</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-upload fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static "img/campaign/campaign1.png" %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-upload fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static "img/campaign/campaign2.png" %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-upload fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static "img/campaign/campaign3.png" %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-upload fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static "img/campaign/campaign4.png" %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-upload fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static "img/campaign/campaign5.png" %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static "img/campaign/add_campaign.png" %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>000 University Dr.<br>Phoenix, AZ 85004</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Customer Support</h3>
+                        <p>Please <a href="mailto:rico@ricolavender.com">contact support</a> if you have any questions on becoming a preferred Feel Free Space.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Feel Free Movement 2015
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Portfolio Modals -->
+    <!-- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Login To your Dashboard</h2>
+                            <hr class="star-primary">
+                            <form name="sentMessage" id="contactForm" novalidate>
+
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Email Address</label>
+                                        <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="row control-group">
+                                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" placeholder="Password" id="password" required data-validation-required-message="Please re-enter your password.">
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <br>
+                                <div id="success"></div>
+                                <div class="row">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js" %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static "js/classie.js" %}"></script>
+    <script src="{% static "js/cbpAnimatedHeader.js" %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
+    <script src="{% static "js/contact_me.js" %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static "js/freelancer.js" %}"></script>
+
+</body>
+
+</html>
