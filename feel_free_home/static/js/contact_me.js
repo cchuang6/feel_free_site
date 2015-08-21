@@ -21,7 +21,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "/signUp/",
+                url: "dashBoard2/",
                 type: "POST",
                 data: {
                     name: name,

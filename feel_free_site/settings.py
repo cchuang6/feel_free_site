@@ -89,6 +89,18 @@ logger = logging.getLogger(__name__)
 # INSTALLED_APPS setting.
 USE_MODELTRANSLATION = False
 
+# AUTH_PROFILE_MODULE="solid.MyProfile"
+AUTH_PROFILE_MODULE="dashBoard.BusinessProfile"
+# ACCOUNTS_ENABLED = True
+PAGES_MENU_SHOW_ALL = False
+
+ACCOUNTS_PROFILE_FORM_EXCLUDE_FIELDS = (
+    "first_name",
+    "last_name",
+    "signup_date",
+    "date_of_birth"
+)
+
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -204,7 +216,7 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 # or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
+# TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "feel_free_site/../feel_free_home/templates"),)
 
 
 
@@ -213,8 +225,11 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 ################
 
 INSTALLED_APPS = (
+    # 'solid',
+    # "mezzanine.accounts",
     "feel_free_home",
-    "visualization",
+    "dashBoard",
+    # "visualization",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -234,8 +249,7 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     "storages",
     "gunicorn",
-    "compressor",    
-    # "mezzanine.accounts",
+    "compressor",
     # "mezzanine.mobile",
 )
 
