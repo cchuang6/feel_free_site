@@ -37,9 +37,10 @@ urlpatterns += patterns(
     # commented out like the others, so it's the default. You only need
     # one homepage pattern, so if you use a different one, comment this
     # one out.
-    url("^$", direct_to_template, {"template": "indexHome.html"}, name="home"),
-    # url("^$", include("feel_free_home.urls"), name="home"),
-
+    # url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+    # url("^$", include("solid.urls"), name="home"),
+    url("^", include("feel_free_home.urls")),
+    url(r'^dashBoard/', include('dashBoard.urls')),
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------
     # This pattern gives us a normal ``Page`` object, so that your
@@ -54,8 +55,11 @@ urlpatterns += patterns(
     # should be used if you want to customize the homepage's template.
 
     # url("^$", "mezzanine.pages.views.page", {"slug": "/"}, name="home"),
-    url(r'^home/', include('feel_free_home.urls')),
-    url(r'^visualization/', include('visualization.urls')),
+    # url(r'^home/', include('solid.urls'), name='solid'),
+    # url(r'^home/', include('feel_free_home.urls')),
+    # url(r'^visualization/', include('visualization.urls')),
+    # url("^/solid", "mezzanine.pages.views.page", {"slug": "/solid"}, name="solid"),
+    # url(r'^solid/',  include('solid.urls')),
 
     # HOMEPAGE FOR A BLOG-ONLY SITE
     # -----------------------------
@@ -78,9 +82,9 @@ urlpatterns += patterns(
     # ``mezzanine.urls``, go right ahead and take the parts you want
     # from it, and use them directly below instead of using
     # ``mezzanine.urls``.
-    # ("^", include("mezzanine.urls")),
-    ("^", include("mezzanine.core.urls")),
-    ("^", include("mezzanine.generic.urls")),
+    ("^", include("mezzanine.urls")),
+    # ("^", include("mezzanine.core.urls")),
+    # ("^", include("mezzanine.generic.urls")),
 
 
     # MOUNTING MEZZANINE UNDER A PREFIX

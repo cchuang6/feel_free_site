@@ -1,5 +1,8 @@
-from django.conf.urls import url
+from django.conf.urls import url, patterns
+from . import views
 
-from feel_free_home import views
 
-urlpatterns = [url(r'^$', views.index, name='home'), ]
+urlpatterns = patterns('',
+                       url(r'^$', views.index, name='home'),
+                       url(r'^dashBoard2/', views.signUpTest, name='test'),
+                       )
