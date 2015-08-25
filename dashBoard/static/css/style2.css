@@ -197,19 +197,19 @@ section.success a.active {
     }
 }
 
-#portfolio .portfolio-item {
+#campaign .campaign-item {
     right: 0;
     margin: 0 0 15px;
 }
 
-#portfolio .portfolio-item .portfolio-link {
+#campaign .campaign-item .campaign-link {
     display: block;
     position: relative;
     margin: 0 auto;
     max-width: 400px;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption {
+#campaign .campaign-item .campaign-link .caption {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -220,11 +220,11 @@ section.success a.active {
     transition: all ease .5s;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption:hover {
+#campaign .campaign-item .campaign-link .caption:hover {
     opacity: 1;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption .caption-content {
+#campaign .campaign-item .campaign-link .caption .caption-content {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -235,21 +235,21 @@ section.success a.active {
     color: #fff;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption .caption-content i {
+#campaign .campaign-item .campaign-link .caption .caption-content i {
     margin-top: -12px;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
-#portfolio .portfolio-item .portfolio-link .caption .caption-content h4 {
+#campaign .campaign-item .campaign-link .caption .caption-content h3,
+#campaign .campaign-item .campaign-link .caption .caption-content h4 {
     margin: 0;
 }
 
-#portfolio * {
+#campaign * {
     z-index: 2;
 }
 
 @media(min-width:767px) {
-    #portfolio .portfolio-item {
+    #campaign .campaign-item {
         margin: 0 0 30px;
     }
 }
@@ -388,7 +388,7 @@ footer .footer-below {
     outline: 0;
 }
 
-.portfolio-modal .modal-content {
+.campaign-modal .modal-content {
     padding: 100px 0;
     min-height: 100%;
     border: 0;
@@ -399,20 +399,20 @@ footer .footer-below {
     box-shadow: none;
 }
 
-.portfolio-modal .modal-content h2 {
+.campaign-modal .modal-content h2 {
     margin: 0;
     font-size: 3em;
 }
 
-.portfolio-modal .modal-content img {
+.campaign-modal .modal-content img {
     margin-bottom: 30px;
 }
 
-.portfolio-modal .modal-content .item-details {
+.campaign-modal .modal-content .item-details {
     margin: 30px 0;
 }
 
-.portfolio-modal .close-modal {
+.campaign-modal .close-modal {
     position: absolute;
     top: 25px;
     right: 25px;
@@ -422,11 +422,11 @@ footer .footer-below {
     cursor: pointer;
 }
 
-.portfolio-modal .close-modal:hover {
+.campaign-modal .close-modal:hover {
     opacity: .3;
 }
 
-.portfolio-modal .close-modal .lr {
+.campaign-modal .close-modal .lr {
     z-index: 1051;
     width: 1px;
     height: 75px;
@@ -437,7 +437,7 @@ footer .footer-below {
     transform: rotate(45deg);
 }
 
-.portfolio-modal .close-modal .lr .rl {
+.campaign-modal .close-modal .lr .rl {
     z-index: 1052;
     width: 1px;
     height: 75px;
@@ -447,7 +447,7 @@ footer .footer-below {
     transform: rotate(90deg);
 }
 
-.portfolio-modal .modal-backdrop {
+.campaign-modal .modal-backdrop {
     display: none;
     opacity: 0;
 }
@@ -470,3 +470,163 @@ footer .footer-below {
 .morestats {
   padding: 20px;
 }
+
+/*DASHBOARD SPECIFICS*/
+
+/* .info-box
+=================================================================== */
+.info-box {
+  min-height: 140px;
+  margin-bottom: 30px;
+  padding: 20px;
+  color: white;
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
+}
+.info-box i {
+  display: block;
+  height: 100px;
+  font-size: 60px;
+  line-height: 100px;
+  width: 100px;
+  float: left;
+  text-align: center;
+  margin-right: 20px;
+  padding-right: 20px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.info-box .count {
+  margin-top: 20px;
+  font-size: 34px;
+  font-weight: 700;
+}
+.info-box .title {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.info-box .desc {
+  margin-top: 10px;
+  font-size: 12px;
+}
+.info-box.danger {
+  background: #ff5454;
+  border: 1px solid #ff2121;
+}
+.info-box.warning {
+  background: #fabb3d;
+  border: 1px solid #f9aa0b;
+}
+.info-box.primary {
+  background: #20a8d8;
+  border: 1px solid #1985ac;
+}
+.info-box.info {
+  background: #67c2ef;
+  border: 1px solid #39afea;
+}
+.info-box.success {
+  background: #79c447;
+  border: 1px solid #61a434;
+}
+
+/*----------------	color------------------------*/
+.dark-heading-bg {
+  background: #4c4f53;
+  border: 1px solid #4c4f53;
+}
+.main-bg {
+  background: #e6e8ea;
+}
+.white-bg {
+  color : #768399;
+  background : #fff;
+  background-color : #fff;
+}
+.red-bg {
+  color : #fff;
+  background : #d95043;
+  background-color : #d95043;
+}
+.blue-bg {
+  color : #fff;
+  background : #57889c;
+  background-color : #57889c;
+}
+.green-bg {
+  color : #fff;
+  background : #26c281;
+  background-color : #26c281;
+}
+.greenLight-bg {
+  color: #71843f;
+  background: #71843f;
+  background-color: #71843f;
+}
+.yellow-bg {
+  color : #fff;
+  background : #fc6;
+  background-color : #fc6;
+}
+.orange-bg {
+  color : #fff;
+  background : #f4b162;
+  background-color : #f4b162;
+}
+.purple-bg {
+  color : #fff;
+  background : #af91e1;
+  background-color : #af91e1;
+}
+.pink-bg {
+  color : #fff;
+  background : #f78db8;
+  background-color : #f78db8;
+}
+.lime-bg {
+  color : #fff;
+  background : #a8db43;
+  background-color : #a8db43;
+}
+.magenta-bg {
+  color : #fff;
+  background : #e65097;
+  background-color : #e65097;
+}
+.teal-bg {
+  color : #fff;
+  background : #97d3c5;
+  background-color : #97d3c5;
+}
+.brown-bg {
+  color : #fff;
+  background : #d1b993;
+  background-color : #d1b993;
+}
+.gray-bg {
+  color : #768399;
+  background : #e4e9eb;
+  background-color : #e4e9eb;
+}
+.dark-bg {
+  color : #fff;
+  background : #1a2732;
+  background-color : #1a2732;
+}
+.facebook-bg {
+  color: #fff;
+  background: #3b5998;
+  background-color : #3b5998;
+}
+.twitter-bg {
+  color: #fff;
+  background: #00aced;
+  background-color : #00aced;
+}
+.linkedin-bg {
+  color: #fff;
+  background: #4875b4;
+  background-color : #4875b4;
+}
+/*----------------

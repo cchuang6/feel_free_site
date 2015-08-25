@@ -15,7 +15,7 @@
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/style2.css" %}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
@@ -57,7 +57,7 @@
                         <a href="#about">Quick Stats</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Quick Push</a>
+                        <a href="#campaign">Quick Push</a>
                     </li>
                     <li>
                         <a href="{% url 'home' %}">Logout</a>
@@ -85,7 +85,7 @@
     </header>
 
 
-    <!-- About Section -->
+    <!-- Stats Section -->
     <section class="success" id="about">
         <div class="container">
             <div class="row">
@@ -94,10 +94,38 @@
                     <hr class="star-light">
                 </div>
             </div>
+
+            <!-- These are the default quick stats that will always be displayed first. Eventually these will have the option of being swapped out. -->
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Place the priority stats here.</p>
-                </div>
+              <div class="col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4">
+                    <div class="info-box blue-bg">
+                        <i class="fa fa-user"></i>
+                        <div class="count">32 users</div>
+                        <div class="title">Currently Checked-In</div>
+                    </div><!--/.info-box-->
+                </div><!--/.col-->
+
+                <div class="col-lg-4 col-md-4">
+                    <div class="info-box brown-bg">
+                        <i class="fa fa-clock-o"></i>
+                        <div class="count">1.75 Hours</div>
+                        <div class="title">Average Time In Space</div>
+                    </div><!--/.info-box-->
+                </div><!--/.col-->
+
+                <div class="col-lg-4 col-md-4">
+                    <div class="info-box dark-bg">
+                        <i class="fa fa-thumbs-o-up"></i>
+                        <div class="count">13 Connections</div>
+                        <div class="title">Made via Feel Free App</div>
+                    </div><!--/.info-box-->
+                </div><!--/.col-->
+              </div>
+            </div>
+            <!-- End Quick Stats -->
+
+            <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     Show More Stats
@@ -113,8 +141,8 @@
     </section>
 
     <!-- Contact Section -->
-    <!-- Portfolio Grid Section -->
-    <section id="portfolio">
+    <!-- campaign Grid Section -->
+    <section id="campaign">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -123,8 +151,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                <div class="col-sm-4 campaign-item">
+                    <a href="#campaignModal1" class="campaign-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-upload fa-3x"></i>
@@ -133,8 +161,8 @@
                         <img src="{% static "img/campaign/campaign1.png" %}" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                <div class="col-sm-4 campaign-item">
+                    <a href="#campaignModal2" class="campaign-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-upload fa-3x"></i>
@@ -143,8 +171,8 @@
                         <img src="{% static "img/campaign/campaign2.png" %}" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                <div class="col-sm-4 campaign-item">
+                    <a href="#campaignModal3" class="campaign-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-upload fa-3x"></i>
@@ -153,8 +181,8 @@
                         <img src="{% static "img/campaign/campaign3.png" %}" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                <div class="col-sm-4 campaign-item">
+                    <a href="#campaignModal4" class="campaign-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-upload fa-3x"></i>
@@ -163,8 +191,8 @@
                         <img src="{% static "img/campaign/campaign4.png" %}" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                <div class="col-sm-4 campaign-item">
+                    <a href="#campaignModal5" class="campaign-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-upload fa-3x"></i>
@@ -173,8 +201,8 @@
                         <img src="{% static "img/campaign/campaign5.png" %}" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                <div class="col-sm-4 campaign-item">
+                    <a href="#campaignModal6" class="campaign-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-plus fa-3x"></i>
@@ -241,8 +269,8 @@
         </a>
     </div>
 
-    <!-- Portfolio Modals -->
-    <!-- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- campaign Modals -->
+    <!-- <div class="campaign-modal modal fade" id="campaignModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
