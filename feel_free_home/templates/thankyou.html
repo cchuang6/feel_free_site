@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n staticfiles compress %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feel Free Spaces</title>
+
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    {% compress css %}
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static "css/style1.css" %}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{% static "font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    {% endcompress %}
+
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  <div class="col-sm-12">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2">
+                      <h2 class="text-center">Thank You For Registering<br> as a Feel Free Space</h2>
+                      <hr class="star-primary">
+                      <form>
+                          <div class="row control-group">
+                              <div class="form-group col-xs-12 floating-label-form-group controls">
+                                  <label>Enter a Password</label>
+                                  <input type="password" class="form-control" placeholder="Password" id="password1">
+                                  <p class="help-block text-danger"></p>
+                              </div>
+                          </div>
+                          <div class="row control-group">
+                              <div class="form-group col-xs-12 floating-label-form-group controls">
+                                  <label>Confirm Password</label>
+                                  <input type="password" class="form-control" placeholder="Confirm Password" id="password2">
+                                  <p class="help-block text-danger"></p>
+                              </div>
+                          </div>
+                          <br>
+                          <div id="success"></div>
+                          <div class="row">
+                              <div class="form-group col-xs-12">
+                                  <button type="submit" class="btn btn-success btn-lg"><a href="{% url 'dashBoard-welcome' %}">Confirm</a></button>
+                              </div>
+                          </div>
+                      </form>
+
+                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button> -->
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+    {% compress js %}
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js" %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
+    <script src="{% static "js/contact_me.js" %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static "js/freelancer.js" %}"></script>
+    {% endcompress %}
+
+</body>
+
+</html>
