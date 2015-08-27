@@ -23,7 +23,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #a3a3a3;
+    color: #dce2ee;
 }
 
 h1,
@@ -33,7 +33,7 @@ h5,
 h6 {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 h3 {
@@ -93,8 +93,8 @@ header .intro-text .name {
     display: block;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 1.8em;
+    font-weight: 400;
 }
 
 header .intro-text .skills {
@@ -144,8 +144,8 @@ header .intro-text .skills {
 .navbar {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    background-color: #a3a3a3;
+    font-weight: 400;
+    background-color: #dce2ee;
 }
 
 .navbar a:focus {
@@ -176,7 +176,7 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #a3a3a3;
+    background: #dce2ee;
 }
 
 section.success a,
@@ -348,7 +348,8 @@ footer .footer-col {
 
 footer .footer-below {
     padding: 25px 0;
-    background-color: #a3a3a3;
+    background-color: #dce2ee;
+    color: #2c2c2c;
 }
 
 .btn-social {
@@ -464,12 +465,23 @@ footer .footer-below {
   background-color: #8c8c8c
 }
 
-.text-center > h2 {
-  color: #3c3c3c;
+.btn-primary {
+  background-color: #3c3c3c;
 }
 
 .morestats {
   padding: 20px;
+  color: #3c3c3c;
+}
+
+.avatar img {
+  padding: 10px;
+  width: 35%;
+  height: 35%;
+}
+
+.navbar {
+  color: #2c2c2c;
 }
 
 /*DASHBOARD SPECIFICS*/
@@ -481,9 +493,9 @@ footer .footer-below {
   margin-bottom: 30px;
   padding: 20px;
   color: white;
-  -webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
+  /*-webkit-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.35), 0 3px 1px -1px rgba(0, 0, 0, 0.1);*/
 }
 .info-box i {
   display: block;
