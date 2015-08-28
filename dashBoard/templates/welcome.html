@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Feel Free Space - Business Name</title>
+    <title>Feel Free Space - Sip Coffee + Beer house</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Business Name</a>
+                <a class="navbar-brand" href="#page-top">Sip Coffee + Beer House</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,7 +57,7 @@
                         <a href="#about">Quick Stats</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#campaign">Quick Push</a>
+                        <a href="#campaign">Campaigns</a>
                     </li>
                     <li>
                         <a href="{% url 'home' %}">Logout</a>
@@ -128,16 +128,16 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Show More Stats
+                    <h5 class="btn-text">Show More Stats</h5>
                   </button>
                   <div class="collapse" id="collapseExample">
                     <div class="row morestats">
                       <div class="col-lg-3 col-md-3 avatar male">
-                          <img src="{% static "img/avatarM.png" %}" />
-                          <h4>Bill Clinton</h4>
-                          <i class="fa fa-mars"></i> Male<br>
-                          <h4><i class="fa fa-clock-o"></i> HH:MM:SS</h4>
-                          <strong>3rd</strong> time here
+                          <img src="{% static "img/avatarM.png" %}" /> <!-- Profile Picture -->
+                          <h4>Bill Clinton</h4> <!-- Profile Name -->
+                          <i class="fa fa-mars"></i> Male<br> <!--Gender -->
+                          <h4><i class="fa fa-clock-o"></i> HH:MM:SS</h4> <!-- Time count from checked in -->
+                          <strong>3rd</strong> time here <!-- Number of time here -->
                       </div><!--/.col-->
 
                       <div class="col-lg-3 col-md-3 avatar female">
@@ -201,9 +201,9 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <!-- campaign Grid Section -->
-    <section id="campaign">
+    <!-- This section will not be active for September 1st but will just be displayed for explanatory purposes. -->
+    <!-- Campaign Grid Section -->
+    <section id="campaign" class="campaign-background">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -281,12 +281,14 @@
         <div class="footer-above">
             <div class="container">
                 <div class="row">
+                    <!-- Business' address. Should pull in business' address from registration form. -->
                     <div class="footer-col col-md-4">
                         <h3>Location</h3>
-                        <p>000 University Dr.<br>Phoenix, AZ 85004</p>
+                        <p>3617 N Goldwater Blvd.<br>Scottsdale, AZ 85251</p>
                     </div>
+                    <!-- This section will also not be active but will be used to explain the idea to be able to quickly link to their social media pages for quick editing. -->
                     <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
+                        <h3>Manage Social Media</h3>
                         <ul class="list-inline">
                             <li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -306,8 +308,8 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Customer Support</h3>
-                        <p>Please <a href="mailto:rico@ricolavender.com">contact support</a> if you have any questions on becoming a preferred Feel Free Space.</p>
+                        <h3>Technical Support</h3>
+                        <p>Please contact<a href="mailto:tech@feelfreemovement.com"> technical support</a> for any issues with your dashboard.</p>
                     </div>
                 </div>
             </div>
