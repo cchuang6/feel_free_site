@@ -23,7 +23,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #dce2ee;
+    color: #57c1db;
 }
 
 h1,
@@ -33,13 +33,13 @@ h5,
 h6 {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h3 {
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 100;
-  color: #3c3c3c;
+  color: #fff;
 }
 
 hr.star-light,
@@ -94,7 +94,7 @@ header .intro-text .name {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1.8em;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 header .intro-text .skills {
@@ -144,8 +144,8 @@ header .intro-text .skills {
 .navbar {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
-    background-color: #dce2ee;
+    font-weight: 300;
+    background-color: #031420;
 }
 
 .navbar a:focus {
@@ -176,7 +176,7 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #dce2ee;
+    background: #031420;
 }
 
 section.success a,
@@ -185,7 +185,7 @@ section.success a:focus,
 section.success a:active,
 section.success a.active {
     outline: 0;
-    color: #3c3c3c;
+    color: #031420;
 }
 
 @media(max-width:767px) {
@@ -339,7 +339,7 @@ footer h3 {
 
 footer .footer-above {
     padding-top: 50px;
-    background-color: #3c3c3c;
+    background-color: #0b1b27;
 }
 
 footer .footer-col {
@@ -348,8 +348,8 @@ footer .footer-col {
 
 footer .footer-below {
     padding: 25px 0;
-    background-color: #dce2ee;
-    color: #2c2c2c;
+    background-color: #031420;
+    color: #fff;
 }
 
 .btn-social {
@@ -457,7 +457,7 @@ footer .footer-below {
 /*Custom CSS*/
 
 .btn-success {
-  background-color: #3c3c3c;
+  background-color: #031420;
   border: none;
 }
 
@@ -466,12 +466,18 @@ footer .footer-below {
 }
 
 .btn-primary {
-  background-color: #3c3c3c;
+  background-color: #031420;
 }
 
 .morestats {
-  padding: 20px;
-  color: #3c3c3c;
+  margin-top: 10px;
+  color: #fff;
+  background-color: #0b1b27;
+}
+
+.avatar {
+  border: 1px solid #031420;
+  padding: 20px 0;
 }
 
 .avatar img {
@@ -482,6 +488,14 @@ footer .footer-below {
 
 .navbar {
   color: #2c2c2c;
+}
+
+.male i {
+  color: #00ace1;
+}
+
+.female i {
+  color: #00dab3;
 }
 
 /*DASHBOARD SPECIFICS*/
@@ -564,8 +578,8 @@ footer .footer-below {
 }
 .blue-bg {
   color : #fff;
-  background : #57889c;
-  background-color : #57889c;
+  background : #00ace1;
+  background-color : #00ace1;
 }
 .green-bg {
   color : #fff;
@@ -573,9 +587,9 @@ footer .footer-below {
   background-color : #26c281;
 }
 .greenLight-bg {
-  color: #71843f;
-  background: #71843f;
-  background-color: #71843f;
+  color: #fff;
+  background: #00dab3;
+  background-color: #00dab3;
 }
 .yellow-bg {
   color : #fff;
@@ -609,8 +623,8 @@ footer .footer-below {
 }
 .teal-bg {
   color : #fff;
-  background : #97d3c5;
-  background-color : #97d3c5;
+  background : #00c7c6;
+  background-color : #00c7c6;
 }
 .brown-bg {
   color : #fff;
